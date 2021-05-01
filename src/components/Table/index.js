@@ -1,58 +1,79 @@
 import React, { Component } from 'react';
+import Filter from '../Filter';
 import API from '../../utils/API';
 
 class Table extends Component {
 
     state = {
-        result: [{}]
+        result: [],
+        search: ""
     }
-    
 
-    generateUsers = () =>{
+
+    generateUsers = () => {
         API.generateUser()
-        .then(res => this.setState([{ result: res.data }]))
-        .catch(err => console.log(err));
+            .then(res => this.setState({ result: res.data.results }))
+            .catch(err => console.log(err));
     }
 
-    render(){
+    handleFormSubmit = e => {
+        e.preventDefault();
+    }
 
-        return(
+    handleInputChange = e => {
+        this.setState({search: e.target.value})
+    }
+
+    componentDidMount(){
+        this.generateUsers()
+    }
+
+    render() {
+
+        return (
             <div>
-    
-             <table>
-      <tr>
-        <th className="">First Name</th>
-        <th>Last Name</th>
-        <th>Age</th>
-        <th>City</th>
-        <th>Email</th>
-        <th>Phone</th>
-    
-      </tr>
-      <tr>
-        <td>Jill</td>
-        <td>Smith</td>
-        <td>50</td>
-        <td>Charleston</td>
-        <td>Email@email.com</td>
-        <td>543-890-9876</td>
-        <td><img alt="" src="https://i.pinimg.com/564x/f0/3a/34/f03a349219e07c262f961a9afefb9a66.jpg" height="50" width="50"></img></td>
-      </tr>
-      {/* <tr>
-        <td>{this.state.result.name.first}</td>
-        <td>{this.state.result.name.last}</td>
-        <td>{this.state.result.dob.age}</td>
-        <td>{this.state.result.location.city}</td>
-        <td>{this.state.result.email}</td>
-        <td>{this.state.result.cell}</td>
-        <td><img src="https://i.pinimg.com/564x/f0/3a/34/f03a349219e07c262f961a9afefb9a66.jpg" height="50" width="50"></img></td>
-      </tr> */}
-    
-            </table>
-    
+
+            <Filter
+            handleInputChange={this.handleInputChange}
+            handleformSubmit={this.handleFormSubmit}
+            />
+
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th className="">First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>City</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Image</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                    {this.state.result.map(employee => (
+                    <tr>
+                    <td>{employee.name.first}</td>
+                    <td>{employee.name.last}</td>
+                    <td>{employee.dob.age}</td>
+                    <td>{employee.location.city}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.cell}</td>
+                    <td><img src={employee.picture.thumbnail} height="50" width="50"></img></td>
+                </tr>
+
+                    ))}
+
+                    </tbody>
+
+                </table>
+
             </div>
         )
-    
+
     }
 
 };

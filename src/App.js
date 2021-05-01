@@ -10,11 +10,7 @@ class App extends Component {
     return(
     <Wrapper>
       <Header>Employee List Here</Header>
-      <Table>
-
-      </Table>
-      {/* <Employee></Employee>
-      <Employee></Employee> */}
+      <Table></Table>
     </Wrapper>
     );
   }
