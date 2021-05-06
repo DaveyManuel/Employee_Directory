@@ -35,7 +35,7 @@ class Table extends Component {
 
             <Filter
             handleInputChange={this.handleInputChange}
-            handleformSubmit={this.handleFormSubmit}
+            handleFormSubmit={this.handleFormSubmit}
             />
 
                 <table className="table">
@@ -54,7 +54,15 @@ class Table extends Component {
                     </thead>
 
                     <tbody>
-                    {this.state.result.map(employee => (
+                    {this.state.result
+                    .filter((employee)=>{
+                        if (this.state.search === "") {
+                            return employee
+                        } else if (employee.name.first.toLowerCase().includes(this.state.search.toLowerCase())){
+                            return employee
+                        }
+                    })
+                    .map(employee => (
                     <tr>
                     <td>{employee.name.first}</td>
                     <td>{employee.name.last}</td>
