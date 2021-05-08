@@ -61,13 +61,16 @@ class Table extends Component {
                         } else if (employee.name.first.toLowerCase().includes(this.state.search.toLowerCase())){
                             return employee
                         }
+                         else if (employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())){
+                            return employee
+                        }
                     })
                     .map(employee => (
                     <tr>
-                    <td>{employee.name.first}</td>
-                    <td>{employee.name.last}</td>
-                    <td>{employee.dob.age}</td>
-                    <td>{employee.location.city}</td>
+                    <td value={employee.name.first}>{employee.name.first}</td>
+                    <td value={employee.name.last}>{employee.name.last}</td>
+                    <td value={employee.dob.age}>{employee.dob.age}</td>
+                    <td value={employee.location.city}>{employee.location.city}</td>
                     <td>{employee.email}</td>
                     <td>{employee.cell}</td>
                     <td><img src={employee.picture.thumbnail} height="50" width="50"></img></td>

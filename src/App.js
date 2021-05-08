@@ -9,7 +9,7 @@ class App extends Component {
   render(){
     return(
     <Wrapper>
-      <Header>Employee List Here</Header>
+      <Header>Employee Directory</Header>
       <Table></Table>
     </Wrapper>
     );

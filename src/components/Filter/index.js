@@ -15,7 +15,8 @@ function Filter(props) {
                         Filter by:
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a className="dropdown-item" href="#">Name</a></li>
+                        <li><a className="dropdown-item" href="#">First Name</a></li>
+                        <li><a className="dropdown-item" href="#">Last Name</a></li>
                         <li><a className="dropdown-item" href="#">Age</a></li>
                         <li><a className="dropdown-item" href="#">City</a></li>
                     </ul>
@@ -24,7 +25,7 @@ function Filter(props) {
             <div className="col">
                 <div className="input-group mb-3">
                     <button className="btn btn-outline-secondary" type="button" id="button-addon1" onClick={props.handleFormSubmit}>Search</button>
-                    <input type="text" className="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value={props.search} onChange={props.handleInputChange} />
+                    <input type="text" className="form-control" placeholder="First or Last name" aria-label="Example text with button addon" aria-describedby="button-addon1" value={props.search} onChange={props.handleInputChange} />
                 </div>
             </div>
         </div>
