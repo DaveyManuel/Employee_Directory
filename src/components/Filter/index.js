@@ -10,17 +10,12 @@ function Filter(props) {
     return (
         <div className="row">
             <div className="col">
-                <div className="dropdown">
-                    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Filter by:
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a className="dropdown-item" href="#">First Name</a></li>
-                        <li><a className="dropdown-item" href="#">Last Name</a></li>
-                        <li><a className="dropdown-item" href="#">Age</a></li>
-                        <li><a className="dropdown-item" href="#">City</a></li>
-                    </ul>
-                </div>
+            <select className="form-select" onClick={props.handleFormSubmit}>
+                    <option defaultValue>Sort By:</option>
+                    <option value="age">Age</option>
+                    <option value="firstName">First Name</option>
+                    <option value="lastName">Last Name</option>
+                </select>
             </div>
             <div className="col">
                 <div className="input-group mb-3">

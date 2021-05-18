@@ -2,7 +2,7 @@
 
 ## Description
 
-In this project, I used a combination of React and a random employee API to generate a website that shows a directpry of employees. The user is given the opportunity to search employees by first or last name, and also filter employees by first name, last name, age, or location. 
+In this project, I used a combination of React and a random employee API to generate a website that shows a directory of employees. The user is given the opportunity to search employees by first or last name, and also filter employees by first name, last name, age, or location. 
 
 ## Table of Contents
 
@@ -10,7 +10,6 @@ In this project, I used a combination of React and a random employee API to gene
 *[Usage](#Usage)
 *[UserStory](#User Story)
 *[Motivation](#Motivation)
-*[Questions](#Questions)
 
 ## Usage
  
