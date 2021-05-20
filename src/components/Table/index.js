@@ -6,7 +6,8 @@ class Table extends Component {
 
     state = {
         result: [],
-        search: ""
+        search: "",
+        dropdown: ""
     }
 
 
@@ -16,8 +17,50 @@ class Table extends Component {
             .catch(err => console.log(err));
     }
 
-    handleFormSubmit = e => {
+    handleSortBy = e => {
         e.preventDefault();
+        console.log("string here I made it")
+        console.log(e.target)
+        console.log(e.target.value)
+        this.setState({dropdown: e.target.value})
+
+        if (e.target.value === 'age'){
+            const sortedAge = this.state.result.sort(function (a, b) {
+                return a.dob.age - b.dob.age;
+              })
+              this.setState({result: sortedAge})
+        } else if (e.target.value === 'first'){
+            const sortedFirst = this.state.result.sort(function(a, b) {
+                var nameA = a.name.first.toUpperCase(); // ignore upper and lowercase
+                var nameB = b.name.first.toUpperCase(); // ignore upper and lowercase
+                if (nameA < nameB) {
+                  return -1;
+                }
+                if (nameA > nameB) {
+                  return 1;
+                }
+              
+              })
+              console.log(this.state.dropdown)
+              this.setState({result: sortedFirst})
+        } else if (e.target.value === 'last'){
+            const sortedLast = this.state.result.sort(function(a, b) {
+                var nameA = a.name.last.toUpperCase(); // ignore upper and lowercase
+                var nameB = b.name.last.toUpperCase(); // ignore upper and lowercase
+                if (nameA < nameB) {
+                  return -1;
+                }
+                if (nameA > nameB) {
+                  return 1;
+                }
+              
+              })
+              this.setState({result: sortedLast})
+        }
+
+      // .sort((a,b)=>(a.name.first > b.name.first) ? 1)
+
+
     }
 
     handleInputChange = e => {
@@ -28,6 +71,7 @@ class Table extends Component {
         this.generateUsers()
     }
 
+
     render() {
 
         return (
@@ -35,7 +79,8 @@ class Table extends Component {
 
             <Filter
             handleInputChange={this.handleInputChange}
-            handleFormSubmit={this.handleFormSubmit}
+            handleSortBy={this.handleSortBy}
+            dropdown={this.state.dropdown}
             />
 
                 <table className="table">
@@ -74,7 +119,7 @@ class Table extends Component {
                     <td>{employee.email}</td>
                     <td>{employee.cell}</td>
                     <td><img src={employee.picture.thumbnail} height="50" width="50"></img></td>
-                </tr>
+                    </tr>
 
                     ))}
 
