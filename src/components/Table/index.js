@@ -83,7 +83,7 @@ class Table extends Component {
             dropdown={this.state.dropdown}
             />
 
-                <table className="table">
+                <table className="table text-white">
                     <thead>
                         <tr>
                             <th className="">First Name</th>

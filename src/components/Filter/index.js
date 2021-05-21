@@ -3,7 +3,7 @@ import React from 'react';
 function Filter(props) {
 
     return (
-        <div className="row">
+        <div className="row bg-dark">
             <div className="col">
             <select className="form-select" onChange={(e)=>props.handleSortBy(e)} value={props.dropdown}>
                     <option defaultValue>Sort By:</option>
