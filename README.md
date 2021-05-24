@@ -1,5 +1,8 @@
 # Employee Directory
 
+## Deployed Link
+
+
 ## Description
 
 In this project, I used a combination of React and a random employee API to generate a website that shows a directory of employees. The user is given the opportunity to search employees by first or last name, and also sort employees by first name, last name, age, or location. 
@@ -22,7 +25,3 @@ As a user, I want to see a list of employees so that when I click on the appropr
 ## Motivation
 
 The motivation for my project was to create an employee directory that responds to user input searches and user action as it pertains to sorting by category. 
-
-## Deployed Link
-
-
