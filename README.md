@@ -2,6 +2,8 @@
 
 ## Deployed Link
 
+https://daveymanuel.github.io/employee_directory/
+
 
 ## Description
 
